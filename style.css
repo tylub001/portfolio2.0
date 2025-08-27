@@ -59,7 +59,7 @@ body {
 }
 
 .nav__links li a:hover {
-  color: red;
+  color: gold
 }
 
 /* Hero Section */
@@ -606,6 +606,57 @@ body {
   max-width: 1200px;
   margin: auto;
 }
+
+@keyframes goldWave {
+  0% {
+    background-position: -100%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+.nav__brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--white);
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    var(--white) 0%,
+    gold 50%,
+    var(--white) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldWave 1s ease-in-out forwards;
+}
+
+/* Reset to solid white after animation */
+.nav__brand::after {
+  content: "Brittany Tylutke";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--white);
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeBackWhite 0.1s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+@keyframes fadeBackWhite {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 
 .blog-card {
   background-color: var(--light-grey);
